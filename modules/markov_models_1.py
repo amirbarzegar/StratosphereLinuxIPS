@@ -59,7 +59,7 @@ class Model():
         # Assign the first letter prob
         probability = init_letter_prob
         # We should have more than 2 states at least
-        while i < len(state) and len(state) > 1:
+        while i < len(state) and len(state) > 2:
             try:
                 vector = state[i] + state[i+1]
                 # growing_v = state[0:i+2]
@@ -196,10 +196,10 @@ class MarkovModelsDetection():
             self.verbose = verbose
             self.debug = debug
             # Only detect states with more than 3 letters
-            if len(tuple.get_state()) < 4:
-                if self.debug > 3:
-                    print '\t-> State too small'
-                return (False, False, False)
+            #if len(tuple.get_state()) < 7:
+                #if self.debug > 3:
+                    #print '\t-> State too small'
+                #return (False, False, False)
             # Use the current models for detection
             for model in self.models:
                 # Only detect if protocol matches
